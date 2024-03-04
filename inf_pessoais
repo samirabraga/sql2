@@ -1,0 +1,42 @@
+-- Criando o banco de dados:
+
+
+CREATE DATABASE informacoes_pessoais;
+
+-- Selecionando o banco de dados recém-criado:
+
+USE informacoes_pessoais;
+
+-- Criando a tabela de pessoas:
+
+CREATE TABLE IF NOT EXISTS Pessoas (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NomeCompleto VARCHAR(300),
+    Idade INT,
+    Genero VARCHAR(20),
+    Nacionalidade VARCHAR(50),
+    Email VARCHAR(100),
+    EstadoCivil VARCHAR(20),
+    NomePai VARCHAR(200),
+    NomeMae VARCHAR(200)
+);
+
+-- Inserindo três pessoas como exemplo:
+
+INSERT INTO Pessoas (NomeCompleto, Idade, Genero, Nacionalidade, Email, EstadoCivil, NomePai, NomeMae) 
+VALUES    ('João da Silva', 30, 'Masculino', 'Brasileiro', 'joao@example.com', 'Casado', 'José da Silva', 'Maria Oliveira'),
+          ('Maria Oliveira', 28, 'Feminino', 'Brasileira', 'maria@example.com', 'Casada', 'Antônio Oliveira', 'Ana Souza'),
+          ('Carlos Santos', 25, 'Masculino', 'Português', 'carlos@example.com', 'Solteiro', 'Manuel Santos', 'Sofia Silva');
+
+
+-- Atualizando as informações da pessoa com ID 2 (Maria Oliveira)
+UPDATE Pessoas
+SET Idade = 30, EstadoCivil = 'Divorciada', Email = 'maria_novo@example.com'
+WHERE ID = 2;
+
+-- Removendo a pessoa com ID 3 (Carlos Santos)
+DELETE FROM Pessoas
+WHERE ID = 3;
+
+
+SELECT * FROM informacoes_pessoais; 
